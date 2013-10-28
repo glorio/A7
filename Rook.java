@@ -7,6 +7,8 @@
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Polygon;
+import java.awt.Rectangle;
 
 public class Rook extends Piece {
     /**
@@ -25,6 +27,18 @@ public class Rook extends Piece {
    */
 
     public void draw(Graphics2D g2, int x, int y, int size) {
-        // TODO
+        /*Polygon p = new Polygon();
+        for (int i = 0; i < 5; i++) {
+              p.addPoint((int) (100 + 50 * Math.cos(i * 2 * Math.PI / 5)),
+                  (int) (100 + 50 * Math.sin(i * 2 * Math.PI / 5)));
+        }
+
+        g2.drawPolygon(p);*/
+
+        // background rectangle
+        Rectangle base = new Rectangle(x, y, size, size);
+        g2.fill(base);
+
+        //g2.setColor(super.getColor()); // set polygon color
     }
 }

@@ -1,0 +1,43 @@
+Assignment #7, CS 49J
+
+due November 6, 2013
+70 points
+
+In this assignment you are to define 8 classes, specified below, that represent drawable shapes (in the sense of Section 3.8 of our text) for representing chess positions. You will be working in teams of 2 or 3, and the collaboration policy for this class is modified accordingly (for this assignment only).
+Your team will be submitting assignments a Canvas Group. I recommend that you look at the section on People and Groups in the Canvas documentation, if only to see how to communicate with your teammates and how to submit assignments. Details on the composition of teams will be given in class, or through one or more Canvas announcements. All students on a team will get the same grade for the assignment.
+
+The 8 drawable shape classes are to be Board, Chessboard, King, Queen, Rook, Knight, Bishop, and Pawn, and are to work as specified below. All but the first two of these classes are to extend the Piece abstract class, which is available on the class web site.
+
+Subclasses of the Piece class
+
+The Piece class describes pieces on the chessboard. Each piece has a color and a position on the chessboard. Note that the class
+has only one constructor, which takes as arguments the color and two integer components of the position,
+provides accessors for these three values, and
+uses the traditional chess names for the two position components: rank for row (or y-coordinate) and file for column (or x-coordinate). You are to use integers 1 through 8 for these two values, with ranks numbered from bottom to top (the opposite of Java's order) and files numbered from left to right. Note that the file argument precedes the rank argument, as is traditional in chess (although our file argument is numbered rather than lettered).
+The Piece class has only one abstract method, namely draw. You will have to give a concrete definition for this method in each of its 6 subclasses. You will also need to define a constructor for each subclass.
+
+The draw method for each subclass should arrange that the entire drawn image fits in the square of length side whose upper-left corner is at (x,y). Images may be composed of Rectangles, Ellipse2Ds, and Polygons -- you needn't use other shapes. When drawing pieces, you don't need to detect or handle the error of drawing two pieces on the same square. You don't need to check for illegal rank or file values if you document that you aren't doing so.
+
+To see what chess pieces look like both in the real world and in typical drawn representations, you can do a Google image search on chessboard or chess pieces. You might also want to look at the Unicode versions of the pieces at http://www.unicode.org/charts/PDF/U2600.pdf. The codes begin at 2654.
+
+Your images don't have to be even as complex as the Unicode versions. Specifically, the draw methods of the subclasses will be worth 30 points. Of these 30 points
+
+16 will be for drawing pieces that are easily visible, have the right color, fit in their squares, and are distinguishable from other pieces
+7 (or one letter grade) will be for having piece images with at least a vague resemblance to the actual pieces
+7 (or one letter grade) will be for having piece images with a better resemblance to the actual pieces. I will be pickier about this part of the grading than about the rest of the grading
+If you're clever or careful, you can get the full 30 points with little more than 20 shapes (rectangles, ellipses, or polygons) over the 6 classes taken together. If not, or if you feel artistic, you're welcome to use more.
+The Board and Chessboard classes
+
+Instances of the Board class are to represent chessboards (or checkerboards) with two colors of squares. Recall that a chessboard consists of an array of contiguous squares, with no square having the same color as any vertically or horizontally adjacent square. The class is to have a constructor that takes two Color objects as arguments, where the first of these represents the color of the lower-right square. The class is to have a method draw that takes a Graphics2D object, x and y coordinates, and a size in pixels, and draws an image with a board of the given board size onto the the graphics object at the location given by the x and y coordinates.
+I recommend that your class have public methods for accessing each of the board's two colors, for finding the size of a square of a board of a given size, and for finding the x (or y) coordinate of the edge of a square of a given file (or rank) and size.
+
+For this assignment, your Board class will always represent 8 by 8 squares. However you should not use 8 as a magic number in your code. You should not even assume that the number of squares will be even. You may assume that the board is square -- both in the sense of having the same number of squares horizontally and vertically, and in the sense that a drawn object will have the same number of pixels horizontally as vertically. So in particular, the color of the upper-left square will be the color of the lower-right square.
+
+Instances of the Chessboard class are to consist of a Board object and a collection of Pieces. This collection is to be represented as an ArrayList. The class is to have a constructor that takes and saves a Board object and a collection of Pieces, and a draw method with parameters as in the Board class. This method is to draw the board and each piece in its specified position.
+
+Note that instances of the ChessboardComponent class have a Chessboard instance variable that is initialized to the value of the argument of the unary constructor. Also note that the printed board has the largest size that fits into the component, while still being square.
+
+Submission instructions
+
+Your team is to sumbit through Canvas a zipped collection of 11 files, namely A7.java, Board.java, Chessboard.java, ChessboardComponent.java, Piece.java, and the files for the 6 subclasses of the Piece class. There is no program output text, so you don't have to submit any. I will be testing submissions primarily by running the main method of the tester class A7.
+As always, your team may use any private methods or additional classes that it finds useful.

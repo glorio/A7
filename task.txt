@@ -1,2 +1,0 @@
-glorio: Board and ChessBoard
-Luke: pieces

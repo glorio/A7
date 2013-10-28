@@ -27,10 +27,10 @@ public class PieceDrawingTester {
         frame.setTitle("Piece Drawing Tester");
         frame.setVisible(true);
 
-        Piece piece = new Rook(Color.black, 1, 1);
-        BufferedImage bi = new BufferedImage(600,400,BufferedImage.TYPE_INT_RGB);
+        Piece piece = new Rook(Color.black, 0, 0);
+        BufferedImage bi = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = bi.createGraphics();
-        piece.draw(g, 0, 0, frameWidth);
+        piece.draw(g, 0, 0, 400);
 
         JLabel label = new JLabel(new ImageIcon(bi));
 

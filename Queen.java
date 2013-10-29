@@ -26,6 +26,31 @@ public class Queen extends Piece {
    */
 
     public void draw(Graphics2D g2, int x, int y, int size) {
-        // TODO
+        // background rectangle
+        Rectangle backgroundRect = new Rectangle(x, y, size, size);
+        g2.draw(backgroundRect);
+
+        double column = 7;
+        int tipTopRectWidth = (int) (size / column);
+
+        double row = 10;
+        int rectHeight = (int) (size / row);
+        int rectWidth = (int) (size / row);
+
+       // constructs the 2 top rectangles
+        for(int i = 1; i <= 3; i++) {
+            Rectangle rect = new Rectangle(x + (i - 1) * 3 * tipTopRectWidth, y, tipTopRectWidth, rectHeight * 2);
+            g2.draw(rect);
+        }
+
+        // center rectangle
+        Rectangle centerRect = new Rectangle(x + rectWidth, y + rectHeight * 2, rectWidth * 8, rectHeight * 5);
+        g2.draw(centerRect);
+
+        // constructs the 3 base rectangles
+        for(int i = 1; i <= 3; i++) {
+            Rectangle rect = new Rectangle(x + rectWidth * 2, y + size - rectHeight * i, size - rectWidth * 4, rectHeight);
+            g2.draw(rect);
+        }
     }
 }

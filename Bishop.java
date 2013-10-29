@@ -47,7 +47,7 @@ public class Bishop extends Piece {
         g2.draw(bottomCenterRect);
 
         // bottom left rectangle
-        Rectangle bottomLeftRect = new Rectangle(0, y + size - rectHeight * 2, rectWidth * 4, rectHeight * 2);
+        Rectangle bottomLeftRect = new Rectangle(x, y + size - rectHeight * 2, rectWidth * 4, rectHeight * 2);
         g2.draw(bottomLeftRect);
 
         // bottom right rectangle

@@ -34,24 +34,12 @@ public class Knight extends Piece {
         int rectHeight = (int) (size / row);
         int rectWidth = (int) (size / row);
 
-        // top rectangle
-        Rectangle topRect = new Rectangle(x + rectWidth * 4, y, rectWidth * 2, rectHeight * 2);
-        g2.draw(topRect);
+        // left rectangle
+        Rectangle leftRect = new Rectangle(x, y, rectWidth * 5, rectHeight * 4);
+        g2.draw(leftRect);
 
-        // center rectangle
-        Rectangle centerRect = new Rectangle(x + rectWidth * 2, y + size - rectHeight * 8, rectWidth * 6, rectHeight * 4);
-        g2.draw(centerRect);
-
-        // bottom center rectangle
-        Rectangle bottomCenterRect = new Rectangle(x + rectWidth * 3, y + size - rectHeight * 4, rectWidth * 4, rectHeight * 2);
-        g2.draw(bottomCenterRect);
-
-        // bottom left rectangle
-        Rectangle bottomLeftRect = new Rectangle(0, y + size - rectHeight * 2, rectWidth * 4, rectHeight * 2);
-        g2.draw(bottomLeftRect);
-
-        // bottom right rectangle
-        Rectangle bottomRightRect = new Rectangle(x + size - rectWidth * 4, y + size - rectHeight * 2, rectWidth * 4, rectHeight * 2);
-        g2.draw(bottomRightRect);
+        // right rectangle
+        Rectangle rightRect = new Rectangle(x + rectWidth * 5, y, rectWidth * 5, rectHeight * 10);
+        g2.draw(rightRect);
     }
 }

@@ -7,6 +7,7 @@
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 public class Knight extends Piece {
     /**
@@ -25,6 +26,32 @@ public class Knight extends Piece {
    */
 
     public void draw(Graphics2D g2, int x, int y, int size) {
-        // TODO
+        // background rectangle
+        Rectangle backgroundRect = new Rectangle(x, y, size, size);
+        g2.draw(backgroundRect);
+
+        double row = 10;
+        int rectHeight = (int) (size / row);
+        int rectWidth = (int) (size / row);
+
+        // top rectangle
+        Rectangle topRect = new Rectangle(x + rectWidth * 4, y, rectWidth * 2, rectHeight * 2);
+        g2.draw(topRect);
+
+        // center rectangle
+        Rectangle centerRect = new Rectangle(x + rectWidth * 2, y + size - rectHeight * 8, rectWidth * 6, rectHeight * 4);
+        g2.draw(centerRect);
+
+        // bottom center rectangle
+        Rectangle bottomCenterRect = new Rectangle(x + rectWidth * 3, y + size - rectHeight * 4, rectWidth * 4, rectHeight * 2);
+        g2.draw(bottomCenterRect);
+
+        // bottom left rectangle
+        Rectangle bottomLeftRect = new Rectangle(0, y + size - rectHeight * 2, rectWidth * 4, rectHeight * 2);
+        g2.draw(bottomLeftRect);
+
+        // bottom right rectangle
+        Rectangle bottomRightRect = new Rectangle(x + size - rectWidth * 4, y + size - rectHeight * 2, rectWidth * 4, rectHeight * 2);
+        g2.draw(bottomRightRect);
     }
 }

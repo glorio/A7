@@ -35,15 +35,15 @@ public class Pawn extends Piece {
         int rectWidth = (int) (size / row);
 
         // top rectangle
-        Rectangle topRect = new Rectangle(x + rectWidth * 3, y, size - rectWidth * 6, rectHeight * 2);
+        Rectangle topRect = new Rectangle(x + rectWidth * 4, y, size - rectWidth * 8, rectHeight * 2);
         g2.draw(topRect);
 
         // center rectangle
-        Rectangle centerRect = new Rectangle(x + rectWidth * 3, y + size - rectHeight * 7, size - rectWidth * 6, rectHeight * 5);
+        Rectangle centerRect = new Rectangle(x + rectWidth * 3, y + size - rectHeight * 8, size - rectWidth * 6, rectHeight * 6);
         g2.draw(centerRect);
 
         // bottom rectangle
-        Rectangle bottomRect = new Rectangle(x + rectWidth * 3, y + size - rectHeight * 3, size - rectWidth * 6, rectHeight * 2);
+        Rectangle bottomRect = new Rectangle(x + rectWidth * 2, y + size - rectHeight * 2, size - rectWidth * 4, rectHeight * 2);
         g2.draw(bottomRect);
     }
 }

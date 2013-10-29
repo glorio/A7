@@ -39,26 +39,34 @@ public class Rook extends Piece {
         Rectangle backgroundRect = new Rectangle(x, y, size, size);
         g2.draw(backgroundRect);
 
+        double column = 7;
+        int tipTopRectWidth = (int) (size / column);
+
         double row = 10;
         int rectHeight = (int) (size / row);
         int rectWidth = (int) (size / row);
+        int sideSpacing = 2;
 
-        /*// bottom rectangle
-        Rectangle bottomRect = new Rectangle(x, y + size - rectHeight, size, rectHeight);
-        g2.draw(bottomRect);
+       // constructs the 2 top rectangles
+        for(int i = 1; i <= 3; i++) {
+            Rectangle rect = new Rectangle(x + (i - 1) * 3 * tipTopRectWidth, y, tipTopRectWidth, rectHeight);
+            g2.draw(rect);
+        }
 
-        // 2nd from bottom rectangle
-        Rectangle bottomRect2 = new Rectangle(x + rectWidth, y + size - rectHeight * 2, size - rectWidth * 2, rectHeight);
-        g2.draw(bottomRect2);
+        // constructs the 2 top rectangles
+        for(int i = 1; i <= 2; i++) {
+            Rectangle rect = new Rectangle(x + rectWidth * (i - 1), y + rectHeight * i, size - rectWidth * (i - 1) * sideSpacing, rectHeight);
+            g2.draw(rect);
+        }
 
-        // 3rd from bottom rectangle
-        Rectangle bottomRect3 = new Rectangle(x + rectWidth * 2, y + size - rectHeight * 3, size - rectWidth * 4, rectHeight);
-        g2.draw(bottomRect3);*/
+        // center rectangle
+        Rectangle bottomRect3 = new Rectangle(x + rectWidth * 3, y + size - rectHeight * 7, size - rectWidth * 6, rectHeight * 4);
+        g2.draw(bottomRect3);
 
         // constructs the 3 base rectangles
         for(int i = 1; i <= 3; i++) {
-            Rectangle rect = new Rectangle(x + rectWidth * (i - 1), y + size - rectHeight * i, size - rectWidth * (i - 1) * 2, rectHeight);
-            g2.fill(rect);
+            Rectangle rect = new Rectangle(x + rectWidth * (i - 1), y + size - rectHeight * i, size - rectWidth * (i - 1) * sideSpacing, rectHeight);
+            g2.draw(rect);
         }
 
         //g2.setColor(super.getColor()); // set polygon color

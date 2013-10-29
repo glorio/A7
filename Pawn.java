@@ -7,6 +7,7 @@
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 public class Pawn extends Piece {
     /**
@@ -25,6 +26,24 @@ public class Pawn extends Piece {
    */
 
     public void draw(Graphics2D g2, int x, int y, int size) {
-        // TODO
+        // background rectangle
+        Rectangle backgroundRect = new Rectangle(x, y, size, size);
+        g2.draw(backgroundRect);
+
+        double row = 10;
+        int rectHeight = (int) (size / row);
+        int rectWidth = (int) (size / row);
+
+        // top rectangle
+        Rectangle topRect = new Rectangle(x + rectWidth * 3, y, size - rectWidth * 6, rectHeight * 2);
+        g2.draw(topRect);
+
+        // center rectangle
+        Rectangle centerRect = new Rectangle(x + rectWidth * 3, y + size - rectHeight * 7, size - rectWidth * 6, rectHeight * 5);
+        g2.draw(centerRect);
+
+        // bottom rectangle
+        Rectangle bottomRect = new Rectangle(x + rectWidth * 3, y + size - rectHeight * 3, size - rectWidth * 6, rectHeight * 2);
+        g2.draw(bottomRect);
     }
 }

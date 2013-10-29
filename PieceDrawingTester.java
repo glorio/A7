@@ -27,7 +27,7 @@ public class PieceDrawingTester {
         frame.setTitle("Piece Drawing Tester");
         frame.setVisible(true);
 
-        Piece piece = new Rook(Color.black, 0, 0);
+        Piece piece = new Pawn(Color.black, 0, 0);
         BufferedImage bi = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = bi.createGraphics();
         piece.draw(g, 0, 0, 400);

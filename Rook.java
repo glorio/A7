@@ -36,8 +36,30 @@ public class Rook extends Piece {
         g2.drawPolygon(p);*/
 
         // background rectangle
-        Rectangle base = new Rectangle(x, y, size, size);
-        g2.fill(base);
+        Rectangle backgroundRect = new Rectangle(x, y, size, size);
+        g2.draw(backgroundRect);
+
+        double row = 10;
+        int rectHeight = (int) (size / row);
+        int rectWidth = (int) (size / row);
+
+        /*// bottom rectangle
+        Rectangle bottomRect = new Rectangle(x, y + size - rectHeight, size, rectHeight);
+        g2.draw(bottomRect);
+
+        // 2nd from bottom rectangle
+        Rectangle bottomRect2 = new Rectangle(x + rectWidth, y + size - rectHeight * 2, size - rectWidth * 2, rectHeight);
+        g2.draw(bottomRect2);
+
+        // 3rd from bottom rectangle
+        Rectangle bottomRect3 = new Rectangle(x + rectWidth * 2, y + size - rectHeight * 3, size - rectWidth * 4, rectHeight);
+        g2.draw(bottomRect3);*/
+
+        // constructs the 3 base rectangles
+        for(int i = 1; i <= 3; i++) {
+            Rectangle rect = new Rectangle(x + rectWidth * (i - 1), y + size - rectHeight * i, size - rectWidth * (i - 1) * 2, rectHeight);
+            g2.fill(rect);
+        }
 
         //g2.setColor(super.getColor()); // set polygon color
     }

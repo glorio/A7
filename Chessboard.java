@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import javax.swing.JComponent;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 /**
  * This Chessboard class is to hold the Board object and a collection of Pieces
  * This collection is to be represented as an ArrayList.
@@ -8,11 +11,11 @@ import java.util.ArrayList;
 public class Chessboard
 {
     ArrayList<Board> chessboardList = new ArrayList<>(); 
-    ArrayList<Piece> pieceList = new ArrayList<>(); 
+    ArrayList<ArrayList<Piece>> pieceList = new ArrayList<>(); 
     /**
      * Constructor for objects of class Chessboard
      */
-    public Chessboard(Board a, Piece b)
+    public Chessboard(Board a, ArrayList<Piece> b)
     {
         chessboardList.add(a);
         pieceList.add(b);
@@ -21,9 +24,8 @@ public class Chessboard
     
     public void draw (Graphics2D G, int x, int y, int sizeInPixel)
     {
-        this.x = x;
-        this.y = y;
-   
+        G.drawRect(x, y, sizeInPixel, sizeInPixel);
+        G.fillRect(x,y,sizeInPixel,sizeInPixel);
     }
     
 }

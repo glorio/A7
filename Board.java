@@ -1,6 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
-
+import javax.swing.*;
 /**
  * create a two colors of squares chessboard.
  * 
@@ -15,7 +15,7 @@ public class Board
     private Color colorOne, colorTwo;
     private int sizeOfSquare = 8;
     private int x, y;
-    
+    private JPanel[][] pnlChessCells = new JPanel[sizeOfSquare][sizeOfSquare];
     /**
      * Constructor for objects of class Board
      */
@@ -28,6 +28,9 @@ public class Board
 
     public void draw (Graphics2D G, int x, int y, int sizeInPixel)
     {
+        G.setColor(colorOne);
+        G.drawRect(x, y, sizeInPixel, sizeInPixel);
+        G.fillRect(x,y,sizeInPixel,sizeInPixel);
         this.x = x;
         this.y = y;
    

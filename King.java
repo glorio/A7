@@ -26,26 +26,24 @@ public class King extends Piece {
    */
 
     public void draw(Graphics2D g2, int x, int y, int size) {
-        // background rectangle
-        Rectangle backgroundRect = new Rectangle(x, y, size, size);
-        g2.draw(backgroundRect);
-
-        double row = 10;
-        int rectHeight = (int) (size / row);
-        int rectWidth = (int) (size / row);
+        g2.setColor(super.getColor());
+        
+        int row = 10; //the rows for drawing
+        int rectHeight = (size / row); // the height of the piece
+        int rectWidth = (size / row); // the weidth of piece
 
         // top rectangle
         Rectangle topRect = new Rectangle(x + rectWidth * 4, y, size - rectWidth * 8, rectHeight * 2);
-        g2.draw(topRect);
+        g2.fill(topRect);
 
         // center rectangle
         Rectangle centerRect = new Rectangle(x + rectWidth, y + rectHeight * 2, rectWidth * 8, rectHeight * 5);
-        g2.draw(centerRect);
+        g2.fill(centerRect);
 
         // constructs the 3 base rectangles
         for(int i = 1; i <= 3; i++) {
             Rectangle rect = new Rectangle(x + rectWidth * 2, y + size - rectHeight * i, size - rectWidth * 4, rectHeight);
-            g2.draw(rect);
+            g2.fill(rect);
         }
     }
 }

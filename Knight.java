@@ -26,20 +26,18 @@ public class Knight extends Piece {
    */
 
     public void draw(Graphics2D g2, int x, int y, int size) {
-        // background rectangle
-        Rectangle backgroundRect = new Rectangle(x, y, size, size);
-        g2.draw(backgroundRect);
+       g2.setColor(super.getColor());
 
-        double row = 10;
-        int rectHeight = (int) (size / row);
-        int rectWidth = (int) (size / row);
+        int row = 10; //the rows for drawing
+        int rectHeight = (size / row); // the height of the piece
+        int rectWidth = (size / row); // the weidth of piece
 
         // left rectangle
         Rectangle leftRect = new Rectangle(x, y, rectWidth * 5, rectHeight * 4);
-        g2.draw(leftRect);
+        g2.fill(leftRect);
 
         // right rectangle
         Rectangle rightRect = new Rectangle(x + rectWidth * 5, y, rectWidth * 5, rectHeight * 10);
-        g2.draw(rightRect);
+        g2.fill(rightRect);
     }
 }

@@ -10,8 +10,8 @@ import java.awt.Graphics2D;
  */
 public class Chessboard
 {
-    ArrayList<Board> chessboardList = new ArrayList<>(); 
-    ArrayList<ArrayList<Piece>> pieceList = new ArrayList<>(); 
+    ArrayList<Board> chessboardList = new ArrayList<>(); //an arrayList of Board objects
+    ArrayList<ArrayList<Piece>> pieceList = new ArrayList<>(); //arraylist of an arraylist of Piece
     /**
      * Constructor for objects of class Chessboard
      */
@@ -21,11 +21,23 @@ public class Chessboard
         pieceList.add(b);
         
     }
-    
+     /**
+     * draw pieces on a chessboard
+     * @param G is the Graphics2D object
+     * @param j is the x coordinate
+     * @param k is the y coordinate
+     * @param sizeInPixel the size in pixel
+     */
     public void draw (Graphics2D G, int x, int y, int sizeInPixel)
     {
-        G.drawRect(x, y, sizeInPixel, sizeInPixel);
-        G.fillRect(x,y,sizeInPixel,sizeInPixel);
+        chessboardList.get(0).draw(G,x,y,sizeInPixel);
+        for (Piece p : pieceList.get(0))
+        {
+            int smallSquare = sizeInPixel/(chessboardList.get(0).getSquaresInBoard());
+            
+            p.draw(G,(p.getFile()-1)*smallSquare,(p.getRank()-1)*smallSquare,smallSquare);
+            
+        }
     }
     
 }
